@@ -27,8 +27,8 @@ function oriStyle() {
     const ox = Math.floor(config.mapWidth / 2);
     const oy = Math.floor(config.mapHeight / 2);
     return {
-        left: `${ox-1}px`,
-        top: `${oy-1}px`
+        left: `${ox - 1}px`,
+        top: `${oy - 1}px`
     }
 }
 
@@ -172,11 +172,13 @@ window.addEventListener("load", resize);
         </div>
         <input class="btn" @click="zoomIn" value="Zoom in" type="button" />
         <input class="btn" @click="zoomOut" value="Zoom out" type="button" />
-        <input class="btn" @click="actualSize" value="Actual size" type="button" />
-        <input class="btn" @click="back" :disabled="stack.length == 0" value="Back" type="button" />
-        <input class="btn" @click="next" value="Next" type="button" />
-        <span style="color: white"> gen: {{ config.gen }}</span>
-        <input class="btn" @click="clear" value="Clear" type="button" style="float: right" />
+        <input class="btn" @click="actualSize" value="Actual size" type="button" /><span style="color: white"> gen: {{
+            config.gen }}</span>
+        <div style="position:absolute;bottom:0;width: 100%;">
+            <input class="btn" @click="back" :disabled="stack.length == 0" value="Back" type="button" />
+            <input class="btn" @click="next" value="Next" type="button" />
+            <input class="btn" @click="clear" value="Clear" type="button" style="float: right" />
+        </div>
     </div>
 </template>
 
@@ -202,7 +204,8 @@ window.addEventListener("load", resize);
 }
 
 .btn {
-    font-size: 1em;
+    font-size: 1.5em;
     margin: 0.5em;
+    touch-action: manipulation;
 }
 </style>
